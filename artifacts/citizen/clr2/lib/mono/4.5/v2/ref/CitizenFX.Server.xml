@@ -16,10 +16,6 @@
             
             By default, the blip will show as a *regular* blip with the specified color/sprite if it is outside of the minimap view.
             
-            Example image:
-            ![minimap](https://i.imgur.com/qLbXWcQ.png)
-            ![big map](https://i.imgur.com/0j7O7Rh.png)
-            
             (Native name is *likely* to actually be ADD_BLIP_FOR_AREA, but due to the usual reasons this can't be confirmed)
             </summary>
             <param name="x">
@@ -48,10 +44,6 @@
             It is recommended to use [SET_BLIP_ROTATION](#\_0xF87683CDF73C3F6E) and [SET_BLIP_COLOUR](#\_0x03D7FB09E75D6B7E) to make the blip not rotate along with the camera.
             
             By default, the blip will show as a *regular* blip with the specified color/sprite if it is outside of the minimap view.
-            
-            Example image:
-            ![minimap](https://i.imgur.com/qLbXWcQ.png)
-            ![big map](https://i.imgur.com/0j7O7Rh.png)
             
             (Native name is *likely* to actually be ADD_BLIP_FOR_AREA, but due to the usual reasons this can't be confirmed)
             </summary>
@@ -97,9 +89,9 @@
             Can be used for objects, vehicles and peds.
             
             Example of enemy:
-            ![enemy](https://i.imgur.com/fl78svv.png)
+            ![enemy](https://i.imgur.com/LIizV6S.png)
             Example of friend:
-            ![friend](https://i.imgur.com/Q16ho5d.png)
+            ![friend](https://i.imgur.com/XrCuvZP.png)
             </summary>
             <param name="entity">
             The entity handle to create the blip.
@@ -113,7 +105,7 @@
             Create a blip with a radius for the specified coordinates (it doesnt create the blip sprite, so you need to use [AddBlipCoords](#\_0xC6F43D0E))
             
             Example image:
-            ![example](https://i.imgur.com/9hQl3DB.png)
+            ![example](https://i.imgur.com/fDCmHVD.png)
             </summary>
             <param name="posX">
             The x position of the blip (you can also send a vector3 instead of the bulk coordinates)
@@ -1134,7 +1126,8 @@
                 *   3323
                 *   3407
                 *   3570
-                *   3717
+                *   3751
+                *   3788
             *   RedM
                 *   1311
                 *   1355
@@ -1523,7 +1516,7 @@
         <member name="M:CitizenFX.Server.Native.Natives.GetNumResourceMetadata(CitizenFX.Core.CString,CitizenFX.Core.CString)">
             <summary>
             Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
             <param name="resourceName">
             The resource name.
@@ -2072,7 +2065,7 @@
         <member name="M:CitizenFX.Server.Native.Natives.GetResourceMetadata(CitizenFX.Core.CString,CitizenFX.Core.CString,System.Int32)">
             <summary>
             Gets the metadata value at a specified key/index from a resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
             <param name="resourceName">
             The resource name.
@@ -3221,7 +3214,7 @@
             <summary>
             Sets the displayed sprite for a specific blip.
             
-            There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+            There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
             </summary>
             <param name="blip">
             The blip to change.
@@ -5119,10 +5112,6 @@
             
             By default, the blip will show as a *regular* blip with the specified color/sprite if it is outside of the minimap view.
             
-            Example image:
-            ![minimap](https://i.imgur.com/qLbXWcQ.png)
-            ![big map](https://i.imgur.com/0j7O7Rh.png)
-            
             (Native name is *likely* to actually be ADD_BLIP_FOR_AREA, but due to the usual reasons this can't be confirmed)
             </summary>
         </member>
@@ -5137,9 +5126,9 @@
             Can be used for objects, vehicles and peds.
             
             Example of enemy:
-            ![enemy](https://i.imgur.com/fl78svv.png)
+            ![enemy](https://i.imgur.com/LIizV6S.png)
             Example of friend:
-            ![friend](https://i.imgur.com/Q16ho5d.png)
+            ![friend](https://i.imgur.com/XrCuvZP.png)
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.ADD_BLIP_FOR_RADIUS">
@@ -5147,7 +5136,7 @@
             Create a blip with a radius for the specified coordinates (it doesnt create the blip sprite, so you need to use [AddBlipCoords](#\_0xC6F43D0E))
             
             Example image:
-            ![example](https://i.imgur.com/9hQl3DB.png)
+            ![example](https://i.imgur.com/fDCmHVD.png)
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.ADD_CONVAR_CHANGE_LISTENER">
@@ -5667,7 +5656,8 @@
                 *   3323
                 *   3407
                 *   3570
-                *   3717
+                *   3751
+                *   3788
             *   RedM
                 *   1311
                 *   1355
@@ -5924,7 +5914,7 @@
         <member name="F:CitizenFX.Server.Native.Hash.GET_NUM_RESOURCE_METADATA">
             <summary>
             Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.GET_NUM_RESOURCES">
@@ -6238,7 +6228,7 @@
         <member name="F:CitizenFX.Server.Native.Hash.GET_RESOURCE_METADATA">
             <summary>
             Gets the metadata value at a specified key/index from a resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.GET_RESOURCE_PATH">
@@ -6929,7 +6919,7 @@
             <summary>
             Sets the displayed sprite for a specific blip.
             
-            There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+            There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.SET_CONVAR">
