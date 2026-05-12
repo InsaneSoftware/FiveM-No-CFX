@@ -53,6 +53,22 @@ Game Build: 3570
 
 3. The server will start on port `30120` (TCP/UDP)
 
+## txAdmin Access
+
+Use `startTX.bat` to launch with txAdmin enabled.
+
+
+### Login Methods
+
+- Username + Password
+
+### Local Admin Credentials (Current Setup)
+
+- **Username:** `Insane`
+- **Password:** `glaswater`
+
+If credentials fail, reset local admin state by removing `txData/default/admins.json`, restart `startTX.bat`, and complete setup with the PIN shown in console.
+
 ## Player Connection Guide
 
 Since the server doesn't appear in the FiveM browser, players must connect manually:

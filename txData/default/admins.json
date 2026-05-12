@@ -1,0 +1,10 @@
+[
+  {
+    "$schema": 1,
+    "name": "Insane",
+    "master": true,
+    "password_hash": "$2a$11$ubmHqFMgZ.HTfBWozNncQ.JdpS/bRPdy1TMQ0m.3U2ytifh/XhyM2",
+    "providers": {},
+    "permissions": []
+  }
+]
