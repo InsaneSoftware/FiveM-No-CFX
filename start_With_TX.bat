@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 set "BASE=%~dp0"
-set "ARTIFACTS=%BASE%artifacts"
+set "ARTIFACTS=%BASE%artifacts_29753"
 set "LEGACY_DATA=%BASE%server-data"
 set "PROFILE=default"
 set "TXROOT=%BASE%txData"
