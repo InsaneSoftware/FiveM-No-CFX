@@ -2,7 +2,12 @@
 setlocal enabledelayedexpansion
 
 set "BASE=%~dp0"
-set "ARTIFACTS=%BASE%artifacts_29753"
+set "ARTIFACTS="
+for /f "delims=" %%D in ('dir /b /ad /o-d "%BASE%artifacts_*" 2^>nul') do (
+  set "ARTIFACTS=%BASE%%%D"
+  goto :foundArtifacts
+)
+:foundArtifacts
 set "LEGACY_DATA=%BASE%server-data"
 set "PROFILE=default"
 set "TXROOT=%BASE%txData"
@@ -10,6 +15,12 @@ set "TXDATA=%TXROOT%\%PROFILE%"
 set "PROFILE_CFG=%TXDATA%\cfg"
 set "SERVER_CFG=%PROFILE_CFG%\server.cfg"
 set "PROFILE_CONFIG_JSON=%TXDATA%\config.json"
+
+if not defined ARTIFACTS (
+  echo [ERROR] Could not find any artifacts_* folder in "%BASE%"
+  pause
+  exit /b 1
+)
 
 if not exist "%ARTIFACTS%\FXServer.exe" (
   echo [ERROR] Could not find "%ARTIFACTS%\FXServer.exe"

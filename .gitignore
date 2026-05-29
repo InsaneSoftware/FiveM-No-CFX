@@ -1,7 +1,8 @@
 .idea
 /server-data/cache/
 /artifacts_*/crashes/
-/artifacts_30408/
 /txData/default/default/logs/
 /txData/default/default/data/
 /server-data/resources/\[Insane\]/
+/artifacts_*/.gitignore
+/artifacts_*/**/.gitignore
