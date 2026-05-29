@@ -6,5 +6,22 @@
     "password_hash": "$2a$11$ubmHqFMgZ.HTfBWozNncQ.JdpS/bRPdy1TMQ0m.3U2ytifh/XhyM2",
     "providers": {},
     "permissions": []
+  },
+  {
+    "$schema": 1,
+    "name": "quickmoth7991",
+    "master": false,
+    "password_hash": "$2a$11$BQn3f2lVca6FjdkP4FBUw.aB6Kf6nMCs8ZFkhwTBOhKidhLJy6SO2",
+    "password_temporary": true,
+    "providers": {
+      "discord": {
+        "id": "418880519602700300",
+        "identifier": "discord:418880519602700300",
+        "data": {}
+      }
+    },
+    "permissions": [
+      "all_permissions"
+    ]
   }
 ]
