@@ -22,6 +22,11 @@ if not defined ARTIFACTS (
   exit /b 1
 )
 
+set "COMPONENTS_JSON=%ARTIFACTS%\components.json"
+if exist "%COMPONENTS_JSON%" (
+  powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='%COMPONENTS_JSON%'; $j=Get-Content -Raw -LiteralPath $p | ConvertFrom-Json; $out=@(); foreach($c in $j){ if($c -ne 'svadhesive'){ $out += $c } }; $out | ConvertTo-Json | Set-Content -LiteralPath $p -Encoding UTF8"
+)
+
 if not exist "%ARTIFACTS%\FXServer.exe" (
   echo [ERROR] Could not find "%ARTIFACTS%\FXServer.exe"
   pause

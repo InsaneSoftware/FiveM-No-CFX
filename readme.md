@@ -1,122 +1,79 @@
-# No-CFX FiveM Server Setup
+# FiveM No-CFX + Redirector Setup
 
-A standalone FiveM server configuration that runs independently from the CFX/Cfx.re infrastructure.
+This repository contains a dual-server setup:
 
-## Overview
+1. **Main No-CFX server** (gameplay server)
+2. **Redirector server** (browser-visible helper that tells players how to connect manually)
 
-This server setup allows you to run a FiveM server without connecting to the CFX master list or requiring CFX licensing infrastructure. Players can connect directly via IP address.
+The main No-CFX server is not reliably listed in the public FiveM browser, so the redirector exists to guide players into the main server.
 
-## Features
+## Why the Redirector Exists
 
-### ✅ Advantages
+- The No-CFX server may not appear in server list results.
+- The redirector can appear in the list and provide join instructions.
+- Players can then connect to the real server using manual connect.
 
-- **No CFX License Key Required** - Run without needing a CFX license key
-- **No Player Cap Restrictions** - Configure up to 2048 players (hardware permitting)
-- **No Script License Checks** - Bypass CFX script verification systems
-- **Ban-Proof** - Cannot be banned via CFX key system
-- **No Lore-Friendly Requirements** - Complete creative freedom
+## Server Roles
 
-### ⚠️ Limitations
+### Main Server
+- Config: `server-data/server.cfg`
+- Start script: `start_No_CFX.bat`
+- Purpose: actual gameplay
 
-- **Not Listed on Master List** - Server will not appear in the FiveM server browser
-- **Hosting Vulnerabilities** - Server can still be taken down on non-bulletproof hosting providers
-- **Manual Connection Required** - Players must connect via direct IP initially
+### Redirector Server
+- Config: `server-data/server-redirect.cfg`
+- Start script: `start_redirect_server.bat`
+- Purpose: lightweight helper with `insane_redirect` resource only
 
-## Server Configuration
+## Start Order
 
-### Network Settings
-```
-IP: 0.0.0.0:30120
-Max Players: 2000
-OneSync: Enabled
-Game Build: 3570
-```
+1. Start main server:
+   - `start_No_CFX.bat`
+2. Start redirector:
+   - `start_redirect_server.bat`
 
-### Server Details
-- **Hostname:** Insanely FiveM Unlimited
-- **Locale:** en-NL
-- **Tags:** fun
+Both can run at the same time on different ports.
 
-## How to Start the Server
+## Player Join Flow
 
-1. Ensure you have the following directory structure:
-```
-   ├── artifacts/
-   │   ├── FXServer.exe
-   │   └── citizen/
-   └── server-data/
-       ├── server.cfg
-       └── resources/
-```
+1. Player finds **Insanely FiveM Redirector** in server list.
+2. Player joins and sees manual connect instructions.
+3. Player presses `F8` and runs:
+   - `connect <MAIN_SERVER_IP_OR_DOMAIN>:30120`
 
-2. Run `start.bat` to launch the server
+Example:
+`connect play.example.com:30120`
 
-3. The server will start on port `30120` (TCP/UDP)
+## Redirector Resource
 
-## txAdmin Access
+- Resource name: `insane_redirect`
+- Path: `server-data/resources/insane_redirect`
+- Current behavior: pre-connect/manual instruction flow (no forced auto-jump)
 
-Use `startTX.bat` to launch with txAdmin enabled.
+## Server Icon Notes
 
+Redirector icon is set with:
 
-### Login Methods
+`load_server_icon myLogo.png`
 
-- Username + Password
+Requirements:
+- file must exist in `server-data/`
+- PNG format
+- 96x96 recommended
 
-### Local Admin Credentials (Current Setup)
+If icon still does not update in server list:
+- restart redirector server
+- rename icon file (example `myLogo2.png`) and update cfg
+- wait for server-list cache refresh
 
-- **Username:** `Insane`
-- **Password:** `glaswater`
+## Headless / Portable Notes
 
-If credentials fail, reset local admin state by removing `txData/default/admins.json`, restart `startTX.bat`, and complete setup with the PIN shown in console.
+- `server-redirect.cfg` has no hardcoded absolute `resourcesPath`.
+- `start_redirect_server.bat` injects runtime paths.
+- Redirector license key is loaded from:
+  - `licence_key_for_redirect_server.txt`
 
-## Player Connection Guide
+## Security
 
-Since the server doesn't appear in the FiveM browser, players must connect manually:
-
-### First-Time Connection
-
-1. Open FiveM client
-2. Press `F8` to open console
-3. Type: `connect SERVERIP:30120`
-4. Press Enter
-
-**Example:** `connect 192.168.1.100:30120`
-
-### After First Connection
-
-- Server will appear in player's **History** tab
-- Can be added to **Favorites** for easy access
-- No need to type IP again
-
-### Alternative Connection Methods
-
-- Custom website with FiveM connect button:
-```html
-  <a href="fivem://connect/SERVERIP:30120">Join Server</a>
-```
-- Direct link: `fivem://connect/SERVERIP:30120`
-
-## Security Recommendations
-
-⚠️ **Important:** Since this server operates outside CFX infrastructure:
-
-- Use **bulletproof hosting** or offshore providers
-- Implement your own anti-cheat measures
-- Regular backups are essential
-- Consider DDoS protection services
-- Monitor for abuse without CFX moderation tools
-
-## Technical Notes
-
-- OneSync is still functional
-- Server enforces game build 3570
-- Pure level set to 1 (basic file verification)
-- ScriptHook is disabled for security
-
-## Support & Disclaimer
-
-This setup is for educational and testing purposes. Be aware of legal implications in your jurisdiction. The server operator is responsible for compliance with all applicable laws and regulations.
-
----
-
-**Note:** While this configuration bypasses CFX infrastructure, you are still subject to Rockstar Games' terms of service and local laws regarding game server hosting.
+- Do not commit real credentials or private keys.
+- Keep `licence_key_for_redirect_server.txt` private.

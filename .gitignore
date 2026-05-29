@@ -6,3 +6,4 @@
 /server-data/resources/\[Insane\]/
 /artifacts_*/.gitignore
 /artifacts_*/**/.gitignore
+/.replxx_history

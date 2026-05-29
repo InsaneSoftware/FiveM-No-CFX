@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirect</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+    }
+    .wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .panel {
+      width: min(560px, 92vw);
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      padding: 20px;
+      box-sizing: border-box;
+      color: #e5e7eb;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      line-height: 1.2;
+    }
+    p {
+      margin: 0 0 10px;
+      font-size: 16px;
+      line-height: 1.4;
+      color: #cbd5e1;
+    }
+    .target {
+      font-family: Consolas, monospace;
+      color: #93c5fd;
+    }
+    .actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      border: 1px solid #4b5563;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 15px;
+      cursor: pointer;
+      color: #f9fafb;
+      background: #1f2937;
+    }
+    .primary {
+      background: #2563eb;
+      border-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <h1>Redirect Server</h1>
+      <p id="line1"></p>
+      <p class="target" id="target"></p>
+      <p id="fallback"></p>
+      <p id="steps"></p>
+      <div class="actions">
+        <button class="primary" id="manualBtn" type="button">I Connect Manually</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const nui = (name, data = {}) => fetch(`https://${GetParentResourceName()}/${name}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    window.addEventListener("message", (event) => {
+      const msg = event.data || {};
+      if (msg.action !== "show") return;
+      document.body.style.display = "block";
+      document.getElementById("line1").innerText = `Manual redirect to ${msg.serverName}`;
+      document.getElementById("target").innerText = msg.target;
+      document.getElementById("fallback").innerText = msg.fallback || "";
+      document.getElementById("steps").innerText = `Open F8 -> type exactly: ${msg.command} -> press Enter`;
+    });
+
+    document.getElementById("manualBtn").addEventListener("click", () => nui("manual"));
+  </script>
+</body>
+</html>
