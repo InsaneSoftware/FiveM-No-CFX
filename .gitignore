@@ -1,6 +1,7 @@
 .idea
 /server-data/cache/
-/artifacts_29753/crashes/
+/artifacts_*/crashes/
+/artifacts_30408/
 /txData/default/default/logs/
 /txData/default/default/data/
 /server-data/resources/\[Insane\]/
