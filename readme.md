@@ -5,13 +5,18 @@ This repository contains a dual-server setup:
 1. **Main No-CFX server** (gameplay server)
 2. **Redirector server** (browser-visible helper that tells players how to connect manually)
 
-The main No-CFX server is not reliably listed in the public FiveM browser, so the redirector exists to guide players into the main server.
+The main No-CFX server is not listed in the public FiveM browser, so the redirector exists to guide players into the main server.
 
 ## Why the Redirector Exists
 
-- The No-CFX server may not appear in server list results.
+- The No-CFX server does not appear in server list results.
 - The redirector can appear in the list and provide join instructions.
 - Players can then connect to the real server using manual connect.
+
+WARNING: USE A FREE CFX ACCOUNT FOR THE REDIRECTOR (THEY CAN BAN THIS)
+(ofcourse you can just create a new cfx account and put it up again)
+
+This is optional! the NO CFX server always works without keys etc!
 
 ## Server Roles
 
